@@ -1,3 +1,5 @@
+#include "button_lib.h"
+
 // Red, green, and blue pins for PWM control
 const int redPin = 13;     // 13 corresponds to GPIO13
 const int greenPin = 12;   // 12 corresponds to GPIO12
@@ -56,7 +58,7 @@ void loop(){
 
   delay(40);
 
-  button_state = read_button_state();
+  button_state = read_button_state(button_pins);
 //  Serial.println("Button state = ");
 //  Serial.println(button_state, BIN);
  
@@ -75,18 +77,7 @@ void loop(){
 }
 
 
-int read_button_state() {
-  int button_state = 0;
-  for(int row = 0; row < 4; row++){
-    digitalWrite(button_pins[row], HIGH);
-    for(int col = 0; col < 4; col++) {
-      int button = digitalRead(button_pins[4 + col]);
-      button_state ^= button << (row * 4 +col);
-    }
-    digitalWrite(button_pins[row], LOW);
-  }
-  return button_state;
-}
+
 
 bool is_button_pressed() {
   return false;

@@ -22,14 +22,14 @@ RGB_Led::RGB_Led(int r, int g, int b, int gnd): pins({r,g,b, gnd}), on_off_state
 
 std::string RGB_Led::to_string(){
 
-std::string str = "RGB LED object connected to the pins: [R,G,B,Gnd] = [" + std::to_string(pins[R_IDX]) +
+std::string str = "RGB LED object connected to the pins: [R,G,B,GND] = [" + std::to_string(pins[R_IDX]) +
   "," + std::to_string(pins[G_IDX]) +
   "," + std::to_string(pins[B_IDX]) +
   "," + std::to_string(pins[GND_IDX]) + "]\n";
   
-  str += "[r,g,b] = [" + std::to_string((r*255)) + "," + std::to_string((g*255)) + "," + std::to_string((b*255)) + "]\n";
+  str += "[r,g,b] = [" + std::to_string(int(r*255)) + "," + std::to_string(int(g*255)) + "," + std::to_string(int(b*255)) + "]\n";
 
-  str += "State: " + (on_off_state) ? "ON\n" : "OFF\n";
+  str += std::string("State: ") + ((on_off_state) ? "ON\n" : "OFF\n");
 
   return str;
   

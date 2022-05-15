@@ -14,21 +14,17 @@ void setup() {
 
 void loop(){
 
-  
-//  ledcWrite(redChannel, r);
-//  ledcWrite(greenChannel, g);
-//  ledcWrite(blueChannel, b);
-  
   delay(500);
   led.turn_off();
   delay(500);
   led.turn_on();
   delay(500);
-  led.dim_brighten(0.8);
+  led.dim_brighten(0.5);
+  delay(500);
+  led.toggle();
+  delay(500);
+  led.toggle();
 
-  Serial.println("R G B: ");
-  Serial.println(led.r);
-  Serial.println(led.g);
-  Serial.println(led.b);
+  Serial.println(led.to_string().c_str());
 
 }

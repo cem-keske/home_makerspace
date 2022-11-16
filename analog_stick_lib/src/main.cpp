@@ -27,7 +27,7 @@ void setup() {
     digitalWrite(GND_PIN,false);
 
     delay(5000);
-    Serial.println("Press X on the middle");
+    Serial.println("Press X in the middle");
 
     int push_button = false;
 

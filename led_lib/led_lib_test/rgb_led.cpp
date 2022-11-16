@@ -15,7 +15,7 @@ RGB_Led::RGB_Led(int r, int g, int b, int gnd): pins({r,g,b, gnd}), on_off_state
   ledcAttachPin(pins[B_IDX], B_IDX); 
 
   if (gnd > 0) { // configure ground if artificial ground is used
-    pinMode(pins[GND_IDX], OUTPUT);
+    pinMode(pins[GND_IDX], OUTPUT_OPEN_DRAIN);
     digitalWrite(pins[GND_IDX], LOW);
   }
 }
